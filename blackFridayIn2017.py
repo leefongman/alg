@@ -31,6 +31,9 @@ def blackFridayInYear(year):
     print("%d年共有%d天是黑色星期五。" % (year, num))
 
 if __name__ == "__main__":
-    year = int(input("请输入一个1900年后的年份，用于输出该年份所有的黑色星期五："))
-    blackFridayInYear(year)
+    while True:
+        year = int(input("请输入一个1900年后的年份，用于输出该年份所有的黑色星期五（数字0退出程序）："))
+        if year == 0:
+            break
+        blackFridayInYear(year)
 
