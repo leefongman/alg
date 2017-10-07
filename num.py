@@ -3,25 +3,26 @@
 from functools import reduce
 
 
-def setBitOne(num, *arg):
+def transform(*arg):
+    """
+    位操作的操作量化
+    """
+    return reduce(lambda n1, n2: (1 << (n1 - 1)) | (1 << (n2 - 1)), arg)
+
+
+def setOne(num, *arg):
     """
     将整型数的二进制数指定位置置1
     """
-    return num | reduce(lambda num1, num2: (1 << (num1 - 1)) |
-            (1 << (num2 - 1)), arg)
+    return num | transform(*arg)
 
 
-def setBitZero(num, *arg):
+def setZero(num, *arg):
     """
     将整型数的二进制数指定位置置0
     """
-    return num & ~reduce(lambda num1, num2: (1 << (num1 - 1)) |
-            (1 << (num2 - 1)), arg)
-
-
-def main():
-    pass
+    return num & ~transform(*arg)
 
 
 if __name__ == "__main__":
-    print(setBitZero(7, 1, 2))
+    print(setZero(7, 1, 2))
