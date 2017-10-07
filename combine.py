@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import os
+
 
 def combine(ls):
     """
@@ -22,6 +24,7 @@ def combine(ls):
             lT = comb.copy()
             lT.insert(idx, last)
             new.append(lT)
+
 
     return new
 
