@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-import os
-
-
 def combine(string):
     """
     字符串string中存储互不相同的多个字符,输出互不相同的排列组合
@@ -27,4 +24,5 @@ if __name__ == "__main__":
     combList = combine(s)
     for l in combList:
         print(l)
+    print("共有", len(combList), "种排列组合")
 
