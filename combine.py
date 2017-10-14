@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-import os
-
-
 def combine(ls):
     """
     列表ls中存储互不相同的多个字符,输出互不相同的排列组合
@@ -15,7 +12,7 @@ def combine(ls):
     last = ls[-1]
     #  除去最后一个元素的组合列表
     old = combine(ls[:-1])
-    #  用于存储最终的组合列表
+    #  用于存储所有组合的列表
     new = []
 
     for comb in old:
@@ -34,4 +31,5 @@ if __name__ == "__main__":
     combList = combine(ls)
     for l in combList:
         print("".join(l))
+    print("共有", len(combList), "种排列组合")
 
