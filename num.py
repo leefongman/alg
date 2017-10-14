@@ -5,7 +5,7 @@ from functools import reduce
 
 def transform(*arg):
     """
-    位操作的操作量化
+    位操作量化
     """
     return reduce(lambda n1, n2: (1 << (n1 - 1)) | (1 << (n2 - 1)), arg)
 
@@ -25,4 +25,4 @@ def setZero(num, *arg):
 
 
 if __name__ == "__main__":
-    print(setZero(7, 1, 2))
+    print(setOne(setZero(7, 1, 2), 1, 2))
