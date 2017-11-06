@@ -1,24 +1,30 @@
 #!/usr/bin/env python3
 
-def createPickList(s):
-    Dict = {")": "(", "]": "[", "}": "{", ">": "<"}
-    if len(s) == 0:
+
+"""
+匹配用字典
+"""
+Dict = {")": "(", "]": "[", "}": "{", ">": "<"}
+
+
+def preprocess(expression):
+    if len(expression) == 0:
         return []
 
-    p = createPickList(s[:-1])
+    p = preprocess(expression[:-1])
 
-    if s[-1] in Dict:
-        if Dict[s[-1]] == p[-1]:
-            p.pop()
-    elif s[-1] in Dict.values():
-        p.append(s[-1])
+    if expression[-1] in Dict and p and Dict[expression[-1]] == p[-1]:
+        p.pop()
+    elif expression[-1] in Dict.values():
+        p.append(expression[-1])
 
     return p
 
 
-def pick(s):
-    return False if createPickList(s) else True
+def metch(expression):
+    return not preprocess(expression)
 
 
 if __name__ == "__main__":
-    pass
+    expression = ")("
+   print(metch(expression))
